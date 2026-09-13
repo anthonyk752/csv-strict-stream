@@ -1,0 +1,16 @@
+{
+  "name": "csv-strict-stream",
+  "version": "0.1.0",
+  "description": "Streaming, validating CSV parser and pretty printer with zero dependencies",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "license": "MIT",
+  "author": "anthonyk752",
+  "engines": {
+    "node": ">=18"
+  }
+}
