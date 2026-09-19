@@ -99,9 +99,22 @@ console.log(formatAsTable([
 `formatAsTable` needs every row up front to compute column widths, so it's
 meant for previewing a handful of rows, not a whole large file.
 
+## Running tests
+
+Tests use Node's built-in test runner, so there's nothing to install:
+
+```
+npm test
+```
+
+This compiles `src` and `test` to `dist-test` and runs everything under
+`dist-test/test` with `node --test`.
+
 ## Status
 
-Early skeleton. The parser and serializer are functional and tested by
-hand against the usual edge cases (quoted commas, quoted newlines, escaped
-quotes, missing trailing newline, `\r\n`), but there's no automated test
-suite yet.
+Early skeleton. The parser and serializer are covered by an automated
+suite exercising the usual edge cases (quoted commas, quoted newlines,
+escaped quotes, missing trailing newline, `\r` and `\r\n` line endings,
+field state carried across chunk boundaries, and column-count
+validation), but there's no CLI yet and only comma/quote characters have
+been exercised, not delimiter presets like TSV.
