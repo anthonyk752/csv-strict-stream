@@ -5,6 +5,9 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "csv-strict-stream": "dist/bin.js"
+  },
   "scripts": {
     "build": "tsc",
     "pretest": "tsc -p tsconfig.test.json",

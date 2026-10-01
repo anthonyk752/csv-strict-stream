@@ -99,6 +99,20 @@ console.log(formatAsTable([
 `formatAsTable` needs every row up front to compute column widths, so it's
 meant for previewing a handful of rows, not a whole large file.
 
+## Command line
+
+```
+csv-strict-stream validate orders.csv
+csv-strict-stream pretty -n 10 orders.csv
+cat orders.csv | csv-strict-stream validate -
+```
+
+`validate` streams the file and prints the row and column counts, or the
+first `CsvValidationError` with its line and character position and exit
+status 1. `pretty` prints the first rows (20 by default, set with `-n`) as a
+table and stops reading once it has them. `-d`, `-q` and `-c` set the
+delimiter, quote character and expected column count. Bad usage exits 2.
+
 ## Running tests
 
 Tests use Node's built-in test runner, so there's nothing to install:
@@ -116,5 +130,5 @@ Early skeleton. The parser and serializer are covered by an automated
 suite exercising the usual edge cases (quoted commas, quoted newlines,
 escaped quotes, missing trailing newline, `\r` and `\r\n` line endings,
 field state carried across chunk boundaries, and column-count
-validation), but there's no CLI yet and only comma/quote characters have
-been exercised, not delimiter presets like TSV.
+validation). The CLI is new; only comma/quote characters have been
+exercised in the parser tests, not delimiter presets like TSV.
